@@ -400,7 +400,7 @@ a.secondary:hover { color:#e63e45;text-decoration:underline; }
 .filter_child span.total {
 	position:absolute;
 	height:16px;
-	width:35px;
+	width:60px;
 	right:0;
 	top:0;
 	line-height:16px;
@@ -462,6 +462,10 @@ a.secondary:hover { color:#e63e45;text-decoration:underline; }
 {
     padding: 7px 0px 3px 0px;
 }
+.cleanRow .labels
+{
+    font-weight:bold;
+}
 
 .item_label
 {
@@ -505,7 +509,6 @@ a.secondary:hover { color:#e63e45;text-decoration:underline; }
 }
 
 .forKomma{
-    color:#e63e45;
     text-decoration:none;
 }
 .forKomma:after{
@@ -517,7 +520,6 @@ a.secondary:hover { color:#e63e45;text-decoration:underline; }
     content:" ";
 }
 .forKomma.link:hover{
-    color:#e63e45;
     text-decoration:underline;
 }
 

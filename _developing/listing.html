@@ -135,7 +135,7 @@ _gaq.push(['_trackPageview']);
 <SCRIPT type="text/javascript" src="js/finder/jsonp.js"></SCRIPT>
 <SCRIPT type="text/javascript" src="js/finder/sha1.js"></SCRIPT>
 <SCRIPT type="text/javascript" src="js/finder/jaml-all.js"></SCRIPT>
-<SCRIPT type="text/javascript" src="js/finder/finder.js"></SCRIPT>
+<SCRIPT type="text/javascript" src="js/finder/finder-ne.js"></SCRIPT>
 <!---------------------------------- end listing related-->
 
 
@@ -666,16 +666,15 @@ new TWTR.Widget({
   
     function customizeFinder() {
         return {
-/*             "selectedProviders":[""], */
-            "selectedLanguage":"en",
-            "externalSources": ["wp","scr","ss","gb"],
-            "pageContainers": ['bottom','top'],
-            "facets" : ["collection","language","format","classification"],
-            "maxLengthDescription":  300,
-            "pageSize": 6,
-            "repositoryName": "NE_Repo",
-            "serviceUrl":"http://collections.natural-europe.eu/repository/api/ariadne/restp"
-            
+/*    				"selectedProviders":[], */
+                    "selectedLanguage":"en",
+                    "externalSources": ["wp","scr","ss","gb"],
+                    "pageContainers": ['bottom','top'],
+                    "facets": ["language","lrt", "context", "iur"], //,"rights" ,"format" "tagr"
+                    "maxLengthDescription":  300,
+                    "pageSize": 6,
+                    "repositoryName": "Organic.Edunet",
+                    "serviceUrl":"http://83.212.96.219:8080/glnRepo/api/ariadne/restp"
             
         }
     }
