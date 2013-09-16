@@ -85,38 +85,81 @@ var FINDER_INITIALIZED = false;
 
 
 var CHECK = 0;
-var langName = {};
 var iter = 0;
 
+/*providers from json || doesn't work cross-server*/
 
 
+var langName=[];
 
-langName['n/a']='Other';
+/*PROVIDERS MAPPING*/
+var providerName=[];
+providerName['greenoer']='Green OER';
+providerName['digitalgreen']='Digital Green';
+providerName['oerafrica']='OER Africa';
+providerName['sercmicro']='SERCMICRO';
+providerName['faocapacityportal']='FAO capacity portal';
+providerName['traglor']='Traglor';
+providerName['nsdlbeyond']='NSDL Beyond';
+providerName['edunhmc']='Educational National Europe';
+providerName['cgiar']='CGIAR';
+providerName['ruforum']='RuForum';
+providerName['gfar']='Global Forum on Agricultural Research';
+providerName['access']='Access Agricultural';
+providerName['rurinc']='Rural Inclusion';
+providerName['oeagroasis']='AGROASIS/NOVA';
+providerName['oeenoat']='ENOAT';
+providerName['oebioagro']='BioAgro';
+providerName['oeecologiga']='Ecologica';
+providerName['oeintute']='Intute';
+providerName['oeaua']='AUA';
+providerName['oeeulsesthonian']='EULS/Estonian';
+providerName['oebmlfuwaustrian']='BMLFUW/Austrian';
+providerName['oefao']='FAO';
+providerName['oeellinogermaniki']='Ellinogermaniki Agogi';
+providerName['oeorganiceprints']='Organic e-prints';
+providerName['oespanish']='Spanish';
+providerName['oemiksike']='MIKSIKE';
+providerName['aglrfaocdx']='FAO Codex';
+providerName['aglrfskn']='Food Safety Knowledge Network';
+providerName['aglrfoodsafety']='Food Safety OER';
+providerName['aglraims']='Webinars AIMS';
+providerName['aglrslowfood']='Slow Food';
+providerName['aglrllb']='Life Lab';
+providerName['aglrgsg']='Great School Gardens';
+providerName['aglreol']='Encyclopedia of Life';
+providerName['aglrnb']='Natural Bridge';
+providerName['aglrfaocapacityportal']='FAO Capacity';
+providerName['aglfaoimark']='iMark';
+providerName['aglrfaoerptoolkit']='ERP Tool Kit';
+providerName['aglrfaoerptoolkitprimsec']='ERP Tool Kit';
+providerName['aglrfaorightofood']='Right To Food';
+providerName['edumnhn']='Natural History Museum of Lisbon';
+providerName['aglrmiksike']='Miksike collection';
+providerName['aglragrjobs']='Agricom Job Profiles';
+providerName['aglrfaogoodpractices']='FAO Good Practices';
+providerName['aglrfaorighttofood']='FAO Right to Food';
+providerName['aglrfaoimark']='FAO iMArk';
+providerName['prodinraagro']='ProdInra';
+providerName['edujura']='Jura-Eichstatt Museum';
+providerName['eduac']='Arctic Centre';
+providerName['aglragricom']='Agricom Competences';
 
-langName['en']='English';
-langName['eng;']='English';
-langName['eng']='English';
-langName['eng; eng']='English';
-langName['fr']= 'French';
-langName['fre']= 'French';
-langName['el']= 'Greek';
-langName['hun']= 'Hungarian';
-langName['et']= 'Estonian';
-langName['est']= 'Estonian';
-langName['nl']= 'Dutch';
-langName['ro']= 'Romanian';
-langName['de']= 'German';
-langName['deu']= 'German';
-langName['tr']= 'Turkish';
-langName['pt']= 'Portuguese';
-langName['por']= 'Portuguese';
-langName['es']= 'Spanish';
-langName['sv']= 'Swedish';
-langName['ell']= 'Greek';
-langName ['lat'] = 'Latin';
-langName['rus'] = 'Russian';
-langName['fi'] = 'Finnish';
-langName['hu'] = 'Hungarian';
+ /*LANGUAGES MAPPING*/
+jQuery.ajax({
+            url: "http://greenlearningnetwork.com/finders_files/language-mapping.json",
+            dataType: "json",
+            success: function(data)
+            {
+	            for(var i=0, size = data.languages.length; i<size;i++){
+	            langName[data.languages[i].machine] = data.languages[i].human;
+	            }
+            }
+            });
+            
+/*-- end JSON Mapping --*/
+
+
 
 
 google.load("language", "1");
@@ -577,8 +620,11 @@ $('noResults').show();
           else if ((item.format[0].indexOf('application')!= -1))
           item.format='images/icons/application.png';
           else
-          item.format='images/icons/application.png';
-          
+          	item.format='images/icons/application.png';
+          }
+          else
+          {
+	         item.format='images/icons/application.png'; 
           }
           
           
@@ -894,18 +940,27 @@ $('noResults').show();
                                              
          Jaml.register('rbcriteria', function(data) //rest facets 
                        {
-                       var label = data.val;
+                       
+                       var label = data.val.toLowerCase();
+					   if(providerName[label] != undefined && label!="map")
+					   {
+					   		label = providerName[label];
+					   }
+					   
                        a({href:'#', id: data.field + ':' + data.val, title: data.val, onclick:"toggleFacetValue('#{id}','#{parent}')".interpolate({id: data.field + ':' + data.val,parent: data.field})}, span(label), span({cls:'total'}, data.count));
                        });
          
          
          Jaml.register('rbcriteria2', function(data) //language facet
                        {
-                       a({href:'#', id: data.field + ':' + data.val, title: data.val, onclick: "toggleFacetValue('#{id}','#{parent}')".interpolate({id: data.field + ':' + data.val, parent: data.field})}, span(langName[data.val]), span({cls:'total'}, data.count ));
+                                              
+                       var label = data.val;
+					   if(langName[label] != undefined )
+					   {
+					   		label = langName[data.val];	
+					   }
                        
-                       //              li({id: data.field + ':' + data.val},
-                       //         a({href:'javascript:void(0);', title: data.val,onclick: "toggleFacetValue('#{id}','#{parent}')".interpolate({id: data.field + ':' + data.val,parent: data.field}),},
-                       //           span(langName[data.val]), span({cls:'total'}, data.count )));
+                       a({href:'#', id: data.field + ':' + data.val, title: data.val, onclick: "toggleFacetValue('#{id}','#{parent}')".interpolate({id: data.field + ':' + data.val, parent: data.field})}, span(label), span({cls:'total'}, data.count ));
                        });
          
          
@@ -921,13 +976,13 @@ $('noResults').show();
          jQuery(document).ready(function(){
                                 
                                 jQuery('.filter_parent').each(function() {
-                                                              if(jQuery(this).hasClass("opened")) jQuery(this).next().css("display","block");
-                                                              });
-                                jQuery('.filter_parent').click(function(event){
-                                                               event.preventDefault();
-                                                               jQuery(this).toggleClass("opened");
-                                                               jQuery(this).next().slideToggle("slow");
-                                                               });
+                              if(jQuery(this).hasClass("opened")) jQuery(this).next().css("display","block");
+                              });
+							  jQuery('.filter_parent').click(function(event){
+                               event.preventDefault();
+                               jQuery(this).toggleClass("opened");
+                               jQuery(this).next().slideToggle("slow");
+                               });
                                 exit();
                                 
                                 });
