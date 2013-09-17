@@ -630,6 +630,14 @@ span.grflag {
 	background:url(images/flag_gr.png) 0 0 no-repeat;
     text-indent:-9999px;
 }
+span.elflag {
+	background:url(images/flag_gr.png) 0 0 no-repeat;
+    text-indent:-9999px;
+}
+span.fiflag {
+	background:url(images/flag_fi.jpeg) 0 0 no-repeat;
+    text-indent:-9999px;
+}
 span.etflag {
 	background:url(images/flag_et.png) 0 0 no-repeat;
     text-indent:-9999px;
