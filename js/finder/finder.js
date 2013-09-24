@@ -876,7 +876,7 @@ function findMaterials(start,numberResults,needsUpdate,initUpdate){
                    //               odd++;
                    //               var backgroundClass = ""
                    //               if(odd%2===0){backgroundClass = "odd";}
-                   var keywordsToEmbed = "  2";
+                   var keywordsToEmbed = " ";
                    
                    var odd = "";
                    if(data.isOdd%2===1){odd="odd"}
