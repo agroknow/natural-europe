@@ -400,7 +400,7 @@ a.secondary:hover { color:#e63e45;text-decoration:underline; }
 .filter_child span.total {
 	position:absolute;
 	height:16px;
-	width:60px;
+	width:30px;
 	right:0;
 	top:0;
 	line-height:16px;
