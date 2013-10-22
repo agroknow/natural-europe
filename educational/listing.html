@@ -120,11 +120,25 @@ _gaq.push(['_trackPageview']);
 
 			</script>
 			<style type="text/css"></style>
-			
-<!-- AK- CSS -->
+
+<!---------------------------------- AK - start listing related-->
 <link rel="stylesheet" type="text/css" media="screen" href="css/ak-style.css" />
-<!-- / AK -->
-			
+<link rel="stylesheet" href="style/reset.css" />
+<link href="http://fonts.googleapis.com/css?family=Signika" rel='stylesheet' type='text/css'>
+                    
+<script type="text/javascript" src="http://yui.yahooapis.com/combo?2.8.1/build/yahoo-dom-event/yahoo-dom-event.js&2.8.1/build/container/container_core-min.js&2.8.1/build/datasource/datasource-min.js&2.8.1/build/element/element-min.js&2.8.1/build/paginator/paginator-min.js&2.8.1/build/datatable/datatable-min.js&2.8.1/build/json/json-min.js&2.8.1/build/selector/selector-min.js&2.8.1/build/layout/layout-min.js"></script>
+
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<!-- removed to avoid conflicts with existed jQuery libs
+<SCRIPT type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></SCRIPT> -->
+<SCRIPT type="text/javascript" src="js/finder/prototype.js"></SCRIPT>
+<SCRIPT type="text/javascript" src="js/finder/jsonp.js"></SCRIPT>
+<SCRIPT type="text/javascript" src="js/finder/sha1.js"></SCRIPT>
+<SCRIPT type="text/javascript" src="js/finder/jaml-all.js"></SCRIPT>
+<SCRIPT type="text/javascript" src="js/finder/finder-ne.js"></SCRIPT>
+<!---------------------------------- end listing related-->
+
+
 </head>
 
 <body id="s5_body">
@@ -139,8 +153,11 @@ _gaq.push(['_trackPageview']);
 							<div id="s5_header_r_wrap">
 					<div id="s5_top_menu">
 								<div class="moduletable">
+								
 <!-- 			<div id="jflanguageselection"><ul class="jflanguageselection"><li id="active_language"><a href="http://www.natural-europe.eu/en"><img src="/components/com_joomfish/images/flags/en.png" alt="English (en)" title="English (en)"></a></li><li><a href="http://www.natural-europe.eu/de"><img src="/components/com_joomfish/images/flags/de.png" alt="Deutsch (de)" title="Deutsch (de)"></a></li><li><a href="http://www.natural-europe.eu/ru"><img src="/components/com_joomfish/images/flags/ru.png" alt="Русский (ru)" title="Русский (ru)"></a></li><li><a href="http://www.natural-europe.eu/el"><img src="/components/com_joomfish/images/flags/el.png" alt="Ελληνικά (el)" title="Ελληνικά (el)"></a></li><li><a href="http://www.natural-europe.eu/fi"><img src="/components/com_joomfish/images/flags/fi.png" alt="Suomi (fi)" title="Suomi (fi)"></a></li><li><a href="http://www.natural-europe.eu/et"><img src="/components/com_joomfish/images/flags/et.png" alt="Eesti keel (et)" title="Eesti keel (et)"></a></li><li><a href="http://www.natural-europe.eu/hu"><img src="/components/com_joomfish/images/flags/hu.png" alt="Magyar (hu)" title="Magyar (hu)"></a></li><li><a href="http://www.natural-europe.eu/pt"><img src="/components/com_joomfish/images/flags/pt.png" alt="Português (pt)" title="Português (pt)"></a></li></ul></div> -->
+			
 			<!--JoomFish V2.1.3 (Twinkle)-->
+			
 <!-- &copy; 2003-2010 Think Network, released under the GPL. -->
 <!-- More information: at http://www.joomfish.net -->		</div>
 
@@ -234,79 +251,60 @@ _gaq.push(['_trackPageview']);
 										<div id="s5_main_body_wrap_inner2">
 											<div id="s5_main_content_wrap">
 												<div id="s5_main_content_wrap_inner" style="margin:0px">
-								<!-- AK - main content -->
-								
-								<div id="ak_navigation">
-									<a class="active" href="#">Home</a>
+							<!-- AK - main content -->
+							<div id="ak_navigation">
+									<a class="inactive" href="index.html">Home ></a> <a href="#">Search</a>
 								</div>
 								
-								<div class="landing_page_moto">
-									<p>Here you can access the online Natural Europe museum cultural collections! Explore the amazing collections curated by the scientists of the Natural History Museums participating in Natural Europe. Discover the rich variety of specimens, animals and plants, rocks and minerals, fossils, of artworks, museums exhibits and many other treasures!<br> 
-Bellow you can find links to the Discovery Microsites of each Natural History Museum that belongs to the Natural Europe network. Just select the logo of the museum you are interested in and explore its digital collections.</p>
-								</div>	
-							
 								<section id="search">
 		                            <div >
 		                                <div>
-		                                    <form class="form-wrapper cf" action="listing.html" method="get">
+		                                    <form class="form-wrapper cf" method="post" onsubmit="doSearch(); return false;">
 		                                        <div>
-		                                            <input type="text" name="query" id="query" class="withplaceholder" placeholder="Search Natural Europe" required>
+		                                            <input type="text" name="query" id="query" class="withplaceholder" placeholder="Search..." required>
 		                                                <button type="submit">Search</button>
 		                                                </div>
 		                                        <!--<input type="submit" value="submit" />-->
 		                                    </form>
+		                                    
 		                                </div>
 		                            </div>
 		                        </section>
-		                        
-		                        <!-- <div class="clearfix"></div> -->
+		                        <section class="listing">
+                                    <div id="insert_pagination_top" class="aligncenter"></div>
+                                    
+                                    <div id="insert_results"></div> <!--results from AJAX call-->
+                                    
+                                    <div id="insert_pagination_bottom" class="aligncenter"></div>
+                                </section>
+			               <!--filters-->
+	                        <aside class="filter">
+	                            <div id="insert_summary" ></div><!-- Results : (1 - 12 of 216) from Ajax.JSONRequest() -->
+	                            <div id="search_status" ></div>
+	                            
+	                            <!--<div><input type="text" name="search_filter" class="search_filter" placeholder="Search results"/></div>-->
+	                            <div id="insert_facets" ></div>
+	                            <div class="remove_filters" style="padding: 3px 0 3px 0;">
+	                                <a href="" style="font-size:12px;" onclick="initialSearch();pagination_hide();">remove filters</a>
+	                            </div>
+	                        </aside>
+	                        <!--end filters-->
+                        
 								
-                                <!-------------------------------------------------------- Life and Earth--->
-				                <section class="icons_nav">
-				                 	<h3>Treasures</h3>
-				                    <nav class="aligncenter">
-				                        <a href="listing.html?query=*&keyword:mineralogy" class="le0">Minerals</a>
-				                        <a href="listing.html?query=plantae" class="le1">Botany</a>
-				                        <a href="listing.html?query=animalia" class="le2">Zoology</a>
-				                        <a href="listing.html?query=rock meteorite" class="le3">Rocks</a>
-				                    </nav>
-				                </section>
-				                
-				                <!-------------------------------------------------------- end Recommended-->
-						                        
-								
-								<section id="highlighted_speciments">
-									<h3>Highlighted Speciments from Natural Europe History Museums</h3>
-									<img src="something.png">
-									<p>Urvogel Archaeopteryx lithographica. <br>Original des Urvogels Archaeopteryx lithographica</p>
-									<p>Museum: <a href="somewhere">Jura Museum</a></p>
-								</section>
-								
-		                        <section id="landing_page_links">
-			                        <p>Below you can find links to the Discovery Microsites of each Natural History Museum that belongs to the Natural Europe Network. Just click the logo of the museum you are interested in and explore its digital collections.</p>
-			                        
-			                        <div><a href="http://greenlearningnetwork.com/arctic-center/cultural/index.html" target="_blank" title="Arctic Center"><img src="images/ac.jpg" /></a></div>
-			                        <div><a href="http://greenlearningnetwork.com/estonian-nhm/cultural/index.html" target="_blank" title="Estonian Natural History Museum"><img src="images/estonian.png" /></a></div>
-			                        <div><a href="http://greenlearningnetwork.com/hnhm/cultural/index.html" target="_blank" title="Hungarian Natural History Museum"><img src="images/hnhm.jpg" /></a></div>
-			                        <div><a href="http://greenlearningnetwork.com/natural-history-museum/cultural/index.html" target="_blank" title="Natural History Museum of Crete"><img src="images/NHMC.jpg" /></a></div>
-			                        <div><a href="http://greenlearningnetwork.com/lisbon-nhm/cultural/index.html" target="_blank" title="Lisbon Natural History Museum"><img src="images/lisbon.jpg" /></a></div>
-			                        <div><a href="http://greenlearningnetwork.com/jura-museum/cultural/index.html" target="_blank" title="Jura Museum"><img src="images/JME.gif" /></a></div>
-		                        </section>
-		                        
-		                        
-		                        
-		                        		                       
-								<!-- /AK - main content -->
+							<!-- /main content -->
 													
 												</div>
 											</div>
 
-					
-											
+
 											<div style="clear:both; height:0px"></div>
 										</div>
 									</div>
 								</div>
+
+
+
+
 
 								<div style="clear:both; height:0px"></div>
 
@@ -358,6 +356,15 @@ Bellow you can find links to the Discovery Microsites of each Natural History Mu
 							<h3 class="s5_mod_h3"><span class="s5_h3_first">Find </span> us on Facebook</h3>
 						</div>
 												
+
+
+
+
+
+
+
+
+
 
 
 	<div class="jv_facebook-container">
@@ -647,4 +654,32 @@ new TWTR.Widget({
 	
 
 
-<div id="OverlayContainer" style="position: absolute; left: 0px; display: none; overflow: hidden; top: 0px; width: 100%; z-index: 1; visibility: hidden; zoom: 1; opacity: 0; height: 2863px; "><iframe id="OverlayIframe" name="OverlayIframe" src="javascript:void(0);" frameborder="1" scrolling="no" style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; visibility: hidden; zoom: 1; opacity: 0; z-index: 1; "></iframe><div id="Overlay" style="position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; z-index: 2; background-color: rgb(0, 0, 0); "></div></div><div class="MultiBoxContainer" style="visibility: hidden; zoom: 1; opacity: 0; display: none; "><iframe id="multiBoxIframe" name="MultiBoxIframe" src="javascript:void(0);" frameborder="1" scrolling="no" style="position: absolute; top: -20px; left: -20px; width: 115%; height: 115%; visibility: hidden; zoom: 1; opacity: 0; "></iframe><div class="MultiBoxContent"></div><div class="MultiBoxClose"></div><div class="MultiBoxControlsContainer" style="height: 0px; "><div class="MultiBoxControls"><div class="MultiBoxPrevious"></div><div class="MultiBoxNext"></div><div class="MultiBoxTitle"></div><div class="MultiBoxNumber"></div><div class="MultiBoxDescription"></div><div style="clear: both; "></div></div></div></div><div id="fancy_overlay"></div><div id="fancy_wrap"><div class="fancy_loading" id="fancy_loading"><div></div></div><div id="fancy_outer"><div id="fancy_inner"><div id="fancy_close"></div><div id="fancy_bg"><div class="fancy_bg fancy_bg_n"></div><div class="fancy_bg fancy_bg_ne"></div><div class="fancy_bg fancy_bg_e"></div><div class="fancy_bg fancy_bg_se"></div><div class="fancy_bg fancy_bg_s"></div><div class="fancy_bg fancy_bg_sw"></div><div class="fancy_bg fancy_bg_w"></div><div class="fancy_bg fancy_bg_nw"></div></div><a href="javascript:;" id="fancy_left"><span class="fancy_ico" id="fancy_left_ico"></span></a><a href="javascript:;" id="fancy_right"><span class="fancy_ico" id="fancy_right_ico"></span></a><div id="fancy_content"></div><div id="fancy_title"><table cellspacing="0" cellpadding="0" border="0"><tbody><tr><td class="fancy_title" id="fancy_title_left"></td><td class="fancy_title" id="fancy_title_main"><div></div></td><td class="fancy_title" id="fancy_title_right"></td></tr></tbody></table></div></div></div></div></body></html>
+<div id="OverlayContainer" style="position: absolute; left: 0px; display: none; overflow: hidden; top: 0px; width: 100%; z-index: 1; visibility: hidden; zoom: 1; opacity: 0; height: 2863px; "><iframe id="OverlayIframe" name="OverlayIframe" src="javascript:void(0);" frameborder="1" scrolling="no" style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; visibility: hidden; zoom: 1; opacity: 0; z-index: 1; "></iframe><div id="Overlay" style="position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; z-index: 2; background-color: rgb(0, 0, 0); "></div></div><div class="MultiBoxContainer" style="visibility: hidden; zoom: 1; opacity: 0; display: none; "><iframe id="multiBoxIframe" name="MultiBoxIframe" src="javascript:void(0);" frameborder="1" scrolling="no" style="position: absolute; top: -20px; left: -20px; width: 115%; height: 115%; visibility: hidden; zoom: 1; opacity: 0; "></iframe><div class="MultiBoxContent"></div><div class="MultiBoxClose"></div><div class="MultiBoxControlsContainer" style="height: 0px; "><div class="MultiBoxControls"><div class="MultiBoxPrevious"></div><div class="MultiBoxNext"></div><div class="MultiBoxTitle"></div><div class="MultiBoxNumber"></div><div class="MultiBoxDescription"></div><div style="clear: both; "></div></div></div></div><div id="fancy_overlay"></div><div id="fancy_wrap"><div class="fancy_loading" id="fancy_loading"><div></div></div><div id="fancy_outer"><div id="fancy_inner"><div id="fancy_close"></div><div id="fancy_bg"><div class="fancy_bg fancy_bg_n"></div><div class="fancy_bg fancy_bg_ne"></div><div class="fancy_bg fancy_bg_e"></div><div class="fancy_bg fancy_bg_se"></div><div class="fancy_bg fancy_bg_s"></div><div class="fancy_bg fancy_bg_sw"></div><div class="fancy_bg fancy_bg_w"></div><div class="fancy_bg fancy_bg_nw"></div></div><a href="javascript:;" id="fancy_left"><span class="fancy_ico" id="fancy_left_ico"></span></a><a href="javascript:;" id="fancy_right"><span class="fancy_ico" id="fancy_right_ico"></span></a><div id="fancy_content"></div><div id="fancy_title"><table cellspacing="0" cellpadding="0" border="0"><tbody><tr><td class="fancy_title" id="fancy_title_left"></td><td class="fancy_title" id="fancy_title_main"><div></div></td><td class="fancy_title" id="fancy_title_right"></td></tr></tbody></table></div></div></div></div>
+
+<!-- AK-customize finder -->
+<script type="text/javascript">
+    /*
+     * function customizeFinder() is called at initialisation time
+     * you need to change values repositoryName and serviceUrl
+     * and also the same values inside the -finder.js- !
+     */
+    function customizeFinder() {
+        return {
+   					"selectedProviders":["EDUMNHN","EDUTNHM","EDUJURA","EDUAC","EDUHNHM","EDUNHMC","EDUELLINOGERMANIKI"],                    					"selectedLanguage":"en",
+                    "externalSources": ["wp","scr","ss","gb"],
+                    "pageContainers": ['bottom','top'],
+                    "facets": ["provider","language","lrt", "context", "iur"], //,"rights" ,"format" "tagr"
+                    "maxLengthDescription":  300,
+                    "pageSize": 6,
+                    "repositoryName": "Organic.Edunet",
+                    "repositoryName": "Organic.Edunet",
+                    "serviceUrl":"http://54.228.180.124:8080/glnRepo/api/ariadne/restp"
+					/*"serviceUrl":"http://83.212.96.219:8080/glnRepo/api/ariadne/restp" */
+            
+        }
+    }
+    </script>
+
+
+
+</body></html>

@@ -1,6 +1,7 @@
-/* GENERAL */
+/* GENERAL & LANDING PAGE */
+
 .landing_page_moto{
-	width:600px;
+	width:700px;
 	margin:0px auto;
 	padding:20px 0px 0px 0px;
 }
@@ -10,17 +11,78 @@
 	font-size: 16px;
 }
 
-#landing_page_links{
-	width:600px;
-	margin:0px auto;
-	padding:20px 0px 0px 0px;	
+.clearfix
+{
+	width:100%;
+	margin-top:50px;
+	display: inline-block;
 }
 
-#landing_page_links div{
+
+/* ICONS NAV */
+.icons_nav { margin-top:20px;}
+
+.icons_nav nav {
+	margin: 30px 0 80px 110px;
+    padding-top: 0px;
+}
+
+
+.icons_nav h3
+{
+    color:#9aad40;
+    padding-bottom:4px;
+    border-bottom:solid 2px #41281e;
+    width:600px;
+    margin:0px auto;
+    font-size: 2.1em;
+    color: #41281e;
+    text-align: center;
+}
+
+.icons_nav nav a {
+	padding-top:120px;
+	display:inline-block;
+	width:130px;
+	text-align:center;
+	font-size:18px;
+    font-weight:normal;
+	margin:0 25px;
+    color:white;
+    
+}
+.icons_nav nav a span {
+	height:40px;
+	display:table-cell;
+	width:180px;
+	vertical-align:top;
+	text-align:center;
+	line-height:1.3em;
+}
+/*recommended*/
+.icons_nav nav a.le0 {background:url(images/minerals.png) center top no-repeat; }
+.icons_nav nav a.le1 { background:url(images/botany.png) center top no-repeat; }
+.icons_nav nav a.le2 { background:url(images/zoology.png) center top no-repeat; }
+.icons_nav nav a.le3 { background:url(images/rocks.png) center top no-repeat; }
+
+.icons_nav nav a.le0:hover { background:url(images/minerals_active.png) center top no-repeat; }
+.icons_nav nav a.le1:hover { background:url(images/botany_active.png) center top no-repeat; }
+.icons_nav nav a.le2:hover { background:url(images/zoology_active.png) center top no-repeat; }
+.icons_nav nav a.le3:hover { background:url(images/rocks_active.png) center top no-repeat; }
+
+
+/* /icons_nav */
+
+
+#highlighted_speciments
+{
 	float:left;
-	margin:0px 30px 20px 30px;
-	padding:5px;	
-	border: 2px solid white;
+	width:450px;
+	display: block;
+	margin-left: 40px;
+	margin-bottom: 30px;
+	padding:10px;
+	border: 1px solid #41281e;
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
 	-o-border-radius: 10px;
@@ -28,9 +90,35 @@
 	border-radius: 10px;
 }
 
-#landing_page_links img{
-	width : 120px;
+#landing_page_links{
+	width:300px;
+	padding:0px 0px 0px 0px;
+	margin-right:50px;
+	margin-bottom: 30px;
+	float:right;
+	display: block;
+	border: 1px solid #41281e;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	-o-border-radius: 10px;
+	-ms-border-radius: 10px;
+	border-radius: 10px;
+}
 
+#landing_page_links p
+{
+	width:90%;
+	margin:0 auto;	
+}
+
+#landing_page_links div{
+	float:left;
+	margin:0px 10px;
+	padding:5px;	
+}
+
+#landing_page_links img{
+	width : 70px;
 }
 
 #ak_navigation{
@@ -482,7 +570,6 @@ a.secondary:hover { color:#e63e45;text-decoration:underline; }
 {
     /*float:right;*/
     width:160px;
-    height:160px;
 }
 .itemDescription
 {
@@ -577,7 +664,7 @@ a.secondary:hover { color:#e63e45;text-decoration:underline; }
 .item-content > div.clearfix {
 	margin-top:45px;
 	padding-bottom:11px;
-	border-bottom:1px solid #ececec;
+/* 	border-bottom:1px solid #ececec; */
 	position:relative;
 }
 .item-content .iteminfo {

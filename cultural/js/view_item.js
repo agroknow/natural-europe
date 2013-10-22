@@ -53,8 +53,24 @@ function getItemJSONP(urlTemp)
                 jQuery('#itemAccess').append('<a target="_blank" href="'+arrayWithJSONS[0].expressions[0].manifestations[0].items[0].url+'" class="access  secondary">Access to the resource</a>');
                 }
                 
-                if(arrayWithJSONS[0].expressions[0].manifestations[0].parameter!==undefined)
+                
+                //IF PATHWAY USE THIS ICON ELSE CHOOSE BY TYPE
+		        if(arrayWithJSONS[0].tokenBlock.learningResourceTypes!=undefined &&  arrayWithJSONS[0].tokenBlock.learningResourceTypes.length!==undefined)
+		        {
+		        	var ctr=0;//counts if already has append the icon
+	                for(var j=0; j<arrayWithJSONS[0].tokenBlock.learningResourceTypes.length;j++)//*ARRAY of keywords in current version
+	                {
+		                if(arrayWithJSONS[0].tokenBlock.learningResourceTypes[j]=="pathway" && ctr<1)
+		                {
+		                	ctr=2;
+			                jQuery('#itemThumb').append('<a href="'+arrayWithJSONS[0].expressions[0].manifestations[0].items[0].url+'"><img class="itemsMedia" src="images/pathway.png" /> </a>');
+		                }
+	                }
+                }
+                else if(arrayWithJSONS[0].expressions[0]!=undefined)
                 {
+	                if(arrayWithJSONS[0].expressions[0].manifestations[0].parameter!==undefined)
+	                {
                 if(arrayWithJSONS[0].expressions[0].manifestations[0].parameter=='text/html'){
                 jQuery('#itemThumb').append('<a href="'+arrayWithJSONS[0].expressions[0].manifestations[0].items[0].url+'"><img class="itemsMedia" src="images/no-image.png" /> </a>');
                 
@@ -84,9 +100,12 @@ function getItemJSONP(urlTemp)
                 
                 }
                 
-                }else{
+                }
+	                else
+	                {
                 jQuery('#itemThumb').append('<a href="'+arrayWithJSONS[0].expressions[0].manifestations[0].items[0].url+'"><img class="itemsMedia" src="images/no-image.png" /> </a>');
                 
+                }
                 }
                 
                 if(arrayWithJSONS[0].expressions[0].manifestations[0].parameter!==undefined)
@@ -237,8 +256,25 @@ function getItemJSONP(urlTemp)
                 jQuery('#itemAccess').append('<a target="_blank" href="'+arrayWithJSONS[0].expressions[0].manifestations[0].items[0].url+'" class="access  secondary">Access to the resource</a>');
                 }
                 
-                if(arrayWithJSONS[0].expressions[0].manifestations[0].parameter!==undefined)
+                
+                
+                //IF PATHWAY USE THIS ICON ELSE CHOOSE BY TYPE
+		        if(arrayWithJSONS[0].tokenBlock.learningResourceTypes!=undefined &&  arrayWithJSONS[0].tokenBlock.learningResourceTypes.length!==undefined)
+		        {
+		        	var ctr=0;//counts if already has append the icon
+	                for(var j=0; j<arrayWithJSONS[0].tokenBlock.learningResourceTypes.length;j++)//*ARRAY of keywords in current version
+	                {
+		                if(arrayWithJSONS[0].tokenBlock.learningResourceTypes[j]=="pathway" && ctr<1)
+		                {
+		                	ctr=2;
+			                jQuery('#itemThumb').append('<a href="'+arrayWithJSONS[0].expressions[0].manifestations[0].items[0].url+'"><img class="itemsMedia" src="images/pathway.png" /> </a>');
+		                }
+	                }
+                }
+                else if(arrayWithJSONS[0].expressions[0]!=undefined)
                 {
+	                if(arrayWithJSONS[0].expressions[0].manifestations[0].parameter!==undefined)
+	                {
                 if(arrayWithJSONS[0].expressions[0].manifestations[0].parameter=='text/html'){
                 jQuery('#itemThumb').append('<a href="'+arrayWithJSONS[0].expressions[0].manifestations[0].items[0].url+'"><img class="itemsMedia" src="images/no-image.png" /> </a>');
                 
@@ -268,9 +304,12 @@ function getItemJSONP(urlTemp)
                 
                 }
                 
-                }else{
+                }
+	                else
+	                {
                 jQuery('#itemThumb').append('<a href="'+arrayWithJSONS[0].expressions[0].manifestations[0].items[0].url+'"><img class="itemsMedia" src="images/no-image.pmg" /> </a>');
                 
+                }
                 }
                 
                 if(arrayWithJSONS[0].expressions[0].manifestations[0].parameter!==undefined)

@@ -234,24 +234,7 @@ function initializeFinder(){
 		div.push('<div id="search_results"></div>');
 		div.push('</div>');
 		$('insert_results').update(div.join(''));
-        //		if (!$('insert_moreResults')) {
-        //			$('body').insert('<div id="insert_moreResults" style="display:none"></div>');
-        //		}
-        //		var div = [];
-        //		div.push('<div id="moreResults"><h3>More Results</h3>');
-        //		for (var i=0;i<EXT_SOURCES.length;i++){
-        //			var es = EXT_SOURCES[i];
-        //			var esn = AVAILABLE_ES[es]['name'];
-        //			div.push('<div id="'+es+'_search" class="ext-res-div">');
-        //			div.push('<a class="ext-res" onclick="getExternalSourceResult(\''+es+'\');" href="javascript:void(0)" title="'+esn+'">'+esn+'</a>');
-        //			div.push('<span id="'+es+'_indicator" style="display:none"><img src="'+ROOT_URL+'common/images/indicator.gif"></span>');
-        //			div.push('<span id="'+es+'_results"></span>');
-        //			div.push('</DIV>');
-        //		}
-        //		div.push('</DIV>');
-        // 		$('insert_moreResults').update(div.join(''));
-        
-        
+
         
         
 		initializeJamlTemplates();
@@ -430,16 +413,9 @@ function parseQueryString(initUpdate){
             clauses.push({language:'anyOf',expression:'collection:'+ urlSelectedCollections});
         }
         
-        //clauses.push({language:'anyOf',expression:'keyword:' + key});
-        //clauses.push({language:'anyOf',expression:'lrt:image'});
-        // add the below to code @ github. It is to limit the results only for OE collection //
-        
+
     }
-//previous one
-//    {
-//        clauses.push({language:'VSQL',expression:plainText});
-//    }
-    
+
     
     
     
@@ -868,16 +844,7 @@ $('noResults').show();
 		               
 		             
 		              var imgThumb = data.format;
-		              // if(data.contentType[0].toUpperCase() == 'IMAGE')
-		              // {
-		              // imgThumb = data.thumbnailUri[0];
-		              // }
-		               
-		//  var thisRights = data.licenseUri;
-		//  if(data.licenseUri==undefined){thisRights == "undefined";}                                                   
-		//  var thisRights2 = data.rights;
-		//  if(data.rights==undefined){thisRights2 == "undefined";}
-		
+
 						/*get id from mdPath*/
 						var mdPath = data.mdPath[0].split('/');
 						var id = mdPath[mdPath.length-1].split('.')[0];
@@ -929,23 +896,29 @@ $('noResults').show();
          
          
          
-         function facetSlide(){
-         
-         jQuery(document).ready(function(){
-                                
-                                jQuery('.filter_parent').each(function() {
-                              if(jQuery(this).hasClass("opened")) jQuery(this).next().css("display","block");
-                              });
-							  jQuery('.filter_parent').click(function(event){
-                               event.preventDefault();
-                               jQuery(this).toggleClass("opened");
-                               jQuery(this).next().slideToggle("slow");
-                               exit();
-                               });
-                                
-                                
-                                });
-         }
+function facetSlide(){
+jQuery(document).ready(function()
+	 {
+	                        
+      jQuery('.filter_parent').each(function() 
+      {
+      console.log('1');
+	      if(jQuery(this).hasClass("opened")) 
+	      jQuery(this).next().css("display","block");
+      });
+      
+	  jQuery('.filter_parent').click(function(event)
+	  {
+	  console.log('2');
+	      event.preventDefault();
+	      jQuery(this).toggleClass("opened");
+	      jQuery(this).next().slideToggle("slow");
+	      exit();                      
+      });
+      
+      
+	});
+}
          
          
          
