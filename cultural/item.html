@@ -130,7 +130,7 @@ _gaq.push(['_trackPageview']);
     <script type="text/javascript">
         function getItem()
         {
-           getItemJSONP('http://83.212.96.219:8080/akifRetriever/getAKIF?ids='+location.search.split("=")[1]);
+           getItemJSONP(location.search.split("=")[1]);
         }
     </script> 
 
@@ -277,98 +277,107 @@ _gaq.push(['_trackPageview']);
                 
                 <div class="sorting"></div> <!-- horizontial bar-->
                 
-                <div class="twocols clearfix">
+               <div class="twocols clearfix">
                     
-                    <aside class="leftSidebarInfo">
-                        <div >
-                            <ul class="floatleft cleanList">
-                                <h2>More Info</h2>
-                                
-                                <li class="cleanRow">
-                                    <span class="labels">Language:</span>
-                                    <nav class="inline-nav" id="itemLanguage">
-                                    </nav>
-                                </li>
-                                <li class="cleanRow">
-                                    <span class="labels">Educational Context:</span>
-                                    <nav class="inline-nav" id="itemEducationalContext">
-                                        
-                                    </nav>
-                                </li>
-                                <li class="cleanRow">
-                                    <span class="labels">Resource Type:</span>
-                                    <nav class="inline-nav" id="itemResourceType">
-                                        
-                                    </nav>
-                                </li>
-                                <li class="cleanRow">
-                                    <span class="labels">Intended Audience:</span>
-                                    <nav class="inline-nav" id="itemIntendedAudience">
-                                        
-                                    </nav>
-                                </li>
-                                <li class="cleanRow">
-                                    <span class="labels">Typical Age Range:</span>
-                                    <nav class="inline-nav" id="itemAgeRange">
-                                        
-                                    </nav>
-                                </li>
-                                <li class="cleanRow">
-                                    <span class="labels">Collection:</span>
-                                    <nav class="inline-nav" id="itemCollection">
-                                        
-                                    </nav>
-                                </li>
-                                <li class="cleanRow">
-                                    <span class="labels">Media Format:</span>
-                                    <nav class="inline-nav" id="itemMediaFormat">
-                                        
-                                    </nav>
-                                </li>
-
-                            </ul>
-                        </div>
+                    <div class="leftSidebarInfo">
                         
-                    </aside>
+                        <ul>
+                            <!--<h1>More Info</h1>-->
+                            
+                            <li class="grayscale_back">
+                                <span class="item_label">Collection:</span>
+                                <span class="item_value" id="collection"></span>
+                            </li>
+                            <li  >
+                            	<span class="item_label">Specimen:</span>
+                                <span class ="titlesOnLeft" id="specimen"></span>
+                            </li>
+                            <li >
+                                <span class="item_label">Classification:</span>
+                                <span  class="item_value" id="classification"></span>
+                            </li>
+                            <li >
+                                <span class="item_label">Scientific Name:</span>
+                                <span  class="item_value" id="scientific_name"></span>
+                            </li>
+                            <li >
+                                <span class="item_label">Spatial Coverage:</span>
+                                <span  class="item_value" id="spatial_coverage"> </span>
+                            </li>
+                            <li >
+                                <span class="item_label">Date:</span>
+                                <span  class="item_value" id="date_created"> </span>
+                            </li>
+                            <li >
+                                <span class="item_label">Type:</span>
+                                <span  class="item_value" id="type"> </span>
+                            </li>
+                            
+                            
+                        </ul>
+                    </div>
+                    
+                    
                     
                     <section class="itemview">
-                        <!--<a href="javascript:window.history.back();" class="backbutton secondary">Back</a>-->
-                        <article class="item-main">
-                            <header>
-                                <h1 id="itemTitle"></h1>
-                                <!--<img src="style/images/copyright_sample.png" alt="image" />-->
-                            </header>
-                            <div class="item-content">
-                                <div>
-                                    <p class="itemDescription" id="itemDescription"></p>
-                                    
-                                </div>
-                                <div id="itemThumb"></div>
+                        <div class="itemDescription" id="itemDescription">
+                            
+                            <ul>
+                                <li >
+                                    <span class="item_label"></span>
+                                    <span  class="item_value" id="item_title"></span>
+                                </li>
+                                <li >
+                                    <span class="item_label">Description:</span>
+                                    <span  class="item_value" id="item_description"></span>
+                                </li>
+                                <li >
+                                    <span class="item_label">Creator:</span>
+                                    <span  class="item_value" id="item_creator"></span>
+                                </li>
+                                <li >
+                                    <span class="item_label">Keywords:</span>
+                                    <span  class="item_value" id="item_keywords"></span>
+                                </li>
+                                <li >
+                                    <span class="item_label">Language:</span>
+                                    <span  class="item_value" id="item_language"></span>
+                                </li>
                                 
-                                <div class="clearfix">
-                                    <div>
-                                        <ul class="itemKeywords">
-                                            <li>
-                                                <span>Keywords:</span>
-                                                <nav id="itemKeywords" class="inline-nav clearfix"> <!--auto-generated--></nav>
-                                                
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div style="position: relative; top: 7px;">
-                                        <ul>
-                                            <li id="itemRights">
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="floatright"><a href="mailto:info@agroknow.gr?Subject=Green%20Learning%20Network" class="reportaproblem  secondary">Report a problem</a></div>
-                                    <div class="floatright" style="margin-right: 15px;" id="itemAccess"></div>
-                                </div>
+                                <li  >
+                                    <span class="item_label">Media type:</span>
+                                    <span  class="item_value" id="media_type"></span>
+                                </li>
                                 
-                            </div>
-                        </article>
-                    </section>
+                                <li >
+                                    <span class="item_label">Copyrights:</span>
+                                    <span  class="item_value" id="item_copyrights"></span>
+                                </li>
+                                <li >
+                                    <span class="item_label">Relation:</span>
+                                    <span  class="item_value" id="item_relation"></span>
+                                </li>
+                                <li >
+                                    <span class="item_label">Creative Common License:</span>
+                                    <span  class="item_value" id="item_common_license"></span>
+                                </li>
+                            </ul>
+                            
+                        </div>
+                        
+                        <div id="itemThumb"></div>
+                
+                <div class="floatright" style="width:500px;">
+                    <div class="floatright" style="margin-right: 15px;" id="itemAccess"></div>
+                    <div class="floatright"><a href="mailto:info@agroknow.gr?Subject=Green%20Learning%20Network" class="reportaproblem  secondary">Report a problem</a></div>
                 </div>
+                    </section>
+               
+            
+                <!-- end item content-->
+            
+                <!--End AK_CONTENT-->
+            </div>
             
                 <!-- end item content-->
                 </section>
