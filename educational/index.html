@@ -121,8 +121,9 @@ _gaq.push(['_trackPageview']);
 			</script>
 			<style type="text/css"></style>
 			
-<!-- AK- CSS -->
+<!-- AK- CSS & SCRIPTS -->
 <link rel="stylesheet" type="text/css" media="screen" href="css/ak-style.css" />
+
 <!-- / AK -->
 			
 </head>
@@ -262,8 +263,8 @@ _gaq.push(['_trackPageview']);
 				                <section class="icons_nav">
 				                 	<h3>Educational Pathways</h3>
 				                    <nav class="aligncenter">
-				                        <a href="listing.html?query=" class="le0">School Group</a>
-				                        <a href="listing.html?query=" class="le0">Families</a>
+				                        <a href="listing.html?query=*&audience=teacher&lrt=pathway" class="le0">School Group</a>
+				                        <a href="listing.html?query=*&audience=parent&lrt=pathway" class="le1">Families</a>
 				                    </nav>
 				                </section>
 				                
@@ -273,8 +274,8 @@ _gaq.push(['_trackPageview']);
 				                <section class="icons_nav">
 				                 	<h3>Resources</h3>
 				                    <nav class="aligncenter">
-				                        <a href="listing.html?query=" class="le0">Plants</a>
-				                        <a href="listing.html?query=" class="le0">Animals</a>
+				                        <a href="listing.html?query=*&keyword=flora,herb,plant" class="le2">Plants</a>
+				                        <a href="listing.html?query=*&keyword=fauna,animal" class="le3">Animals</a>
 				                    </nav>
 				                </section>
 				                
@@ -283,9 +284,53 @@ _gaq.push(['_trackPageview']);
 								
 								<section id="highlighted_pathways">
 									<h3>Highlighted Pathways from Natural Europe History Museums</h3>
-									<img src="something.png">
-									<p>Urvogel Archaeopteryx lithographica. <br>Original des Urvogels Archaeopteryx lithographica</p>
-									<p>Museum: <a href="somewhere">Jura Museum</a></p>
+									<div class="item">
+										<img src="images/arctic.jpg">
+										<div>
+											<p><b>Arctic Tracks</b> <br> Arctic Tracks is an educational pathway focusing on presenting the Arctic region. This is achived through following two different tracks in the permanent exhibition of the Arctic Centre, the track of a biologist and the track of an anthropologist. The objective is to provide the students with basic knowledge of what consitutes the Arctic and to present the work of biologists and anthropologists.</p>
+											<p>Museum: <a href="http://greenlearningnetwork.com/arctic-center/edu/index.html">Arctic Center</a></p>
+										</div>
+									</div>
+									
+									<div class="item">
+										<img src="images/neadertal.png">
+										<div>
+											<p><b>Neanderthals</b> <br> Gather information and evidences about the Neanderthals and the modern Homo sapiens. (They appearance, they adaptive attributions, they everyday life.) Dispelling misconceptions. Find the answer to the question: What can be the couse of the extinction of Neanderthals?</p>
+											<p>Museum: <a href="http://greenlearningnetwork.com/hnhm/edu/index.html">Hungarian Natural History Museum</a></p>
+										</div>
+									</div>
+									
+									<div class="item">
+										<img src="images/mediterranean.png">
+										<div>
+											<p><b>Mediterranean Basin Endemic Species</b> <br> This cross collection pathway is addressed to families and aims to offer knowledge on different subjects: Mediterranean Basin Biodiversity and its importance as an “Biodiversity Hotspot”;Endemic species from Greece and Portugal; Economic relevance; Biodiversity conservation</p>
+											<p>Museum: <a href="http://greenlearningnetwork.com/lisbon-nhm/edu/index.html">Lisbon Natural History Museum</a></p>
+										</div>
+									</div>
+									
+									<div class="item">
+										<img src="images/trees.png">
+										<div>
+											<p><b>Urban Trees</b> <br> The subject of the lecture is trees. Lecture is suitable for introducing a new subject and reviewing. Children are taught how to identify trees with the help of distinguishing characteristics, and more information about trees and their usage is given. Lecture consists of three parts: introductive part, fieldtrip to the park near the museum (Tornide väljak) and follow-up at school. </p>
+											<p>Museum: <a href="http://greenlearningnetwork.com/estonian-nhm/edu/index.html">Estonian Natural History Museum</a></p>
+										</div>
+									</div>
+									
+									<div class="item">
+										<img src="images/ecosystems.png">
+										<div>
+											<p><b>Regional Ecosystems</b> <br> The environment around us integrates different ecosystems. Towns, villages, reservoirs, dams, manmade forests are examples of altered/artificial ecosystems, while a natural lake, a shrubland, a forest, a desert, a river, a coast or the sea are natural ecosystems </p>
+											<p>Museum: <a href="http://greenlearningnetwork.com/natural-history-museum/edu/index.html">Natural History Museum of Crete</a></p>
+										</div>
+									</div>
+									
+									<div class="item">
+										<img src="images/dinos.jpg">
+										<div>
+											<p><b>How dinosaurs learned to fly</b> <br> This workshop assists participants in finding out from which animals the oldest known birds are descended. In this process participants will explore the physical prerequisites for flying. The findings can then be verified at the Jura-Museum's division, in particular by checking them against fossils of the first bird, Archaeopteryx. </p>
+											<p>Museum: <a href="http://greenlearningnetwork.com/jura-museum/edu/index.html">Jura-Museum</a></p>
+										</div>
+									</div>
 								</section>
 								
 								
@@ -520,8 +565,10 @@ new TWTR.Widget({
         
             <script type="text/javascript" src="/modules/mod_jflickr/js/jquery.easing.1.3.js"></script>
 
-        
+ 
 
+    
+    
 <script type="text/javascript"> 
 
 	jQuery(document).ready(function(){   

@@ -61,12 +61,12 @@
 }
 /*recommended*/
 .icons_nav nav a.le0 {background:url(images/schoolgroup.png) center top no-repeat; }
-.icons_nav nav a.le1 { background:url(images/family.png) center top no-repeat; }
+.icons_nav nav a.le1 { background:url(images/families.png) center top no-repeat; }
 .icons_nav nav a.le2 { background:url(images/plants.png) center top no-repeat; }
 .icons_nav nav a.le3 { background:url(images/animals.png) center top no-repeat; }
 
 .icons_nav nav a.le0:hover { background:url(images/schoolgroup_active.png) center top no-repeat; }
-.icons_nav nav a.le1:hover { background:url(images/family_active.png) center top no-repeat; }
+.icons_nav nav a.le1:hover { background:url(images/families_active.png) center top no-repeat; }
 .icons_nav nav a.le2:hover { background:url(images/plants_active.png) center top no-repeat; }
 .icons_nav nav a.le3:hover { background:url(images/animals_active.png) center top no-repeat; }
 
@@ -74,21 +74,43 @@
 /* /icons_nav */
 
 
-#highlighted_pathways
+#highlighted_pathways 
 {
 	float:left;
-	width:450px;
+	width:490px;
 	display: block;
 	margin-left: 40px;
 	margin-bottom: 30px;
 	padding:10px;
-	border: 1px solid #41281e;
-	-webkit-border-radius: 10px;
-	-moz-border-radius: 10px;
-	-o-border-radius: 10px;
-	-ms-border-radius: 10px;
-	border-radius: 10px;
+	border: 1px solid rgba(0,0,0, 0.4);
+
 }
+
+#highlighted_pathways .item
+{
+	width:100%;
+	padding:10px 0px; 
+	display:inline-block;
+	border-top: 1px solid rgba(0,0,0, 0.4);
+}
+
+#highlighted_pathways .item img
+{
+	width:120px;
+	float:left;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-o-border-radius: 3px;
+	-ms-border-radius: 3px;
+	border-radius: 3px;
+}
+
+#highlighted_pathways .item div
+{
+	width:350px;
+	float:right;
+}
+
 
 #landing_page_links{
 	width:300px;
@@ -97,12 +119,8 @@
 	margin-bottom: 30px;
 	float:right;
 	display: block;
-	border: 1px solid #41281e;
-	-webkit-border-radius: 10px;
-	-moz-border-radius: 10px;
-	-o-border-radius: 10px;
-	-ms-border-radius: 10px;
-	border-radius: 10px;
+	border: 1px solid rgba(0,0,0, 0.4);
+
 }
 
 #landing_page_links p

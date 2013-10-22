@@ -74,21 +74,44 @@
 /* /icons_nav */
 
 
-#highlighted_speciments
+
+#highlighted_speciments 
 {
 	float:left;
-	width:450px;
+	width:490px;
 	display: block;
 	margin-left: 40px;
 	margin-bottom: 30px;
 	padding:10px;
-	border: 1px solid #41281e;
-	-webkit-border-radius: 10px;
-	-moz-border-radius: 10px;
-	-o-border-radius: 10px;
-	-ms-border-radius: 10px;
-	border-radius: 10px;
+	border: 1px solid rgba(0,0,0, 0.4);
+
 }
+
+#highlighted_speciments .item
+{
+	width:100%;
+	padding:10px 0px; 
+	display:inline-block;
+	border-top: 1px solid rgba(0,0,0, 0.4);
+}
+
+#highlighted_speciments .item img
+{
+	width:120px;
+	float:left;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-o-border-radius: 3px;
+	-ms-border-radius: 3px;
+	border-radius: 3px;
+}
+
+#highlighted_speciments .item div
+{
+	width:350px;
+	float:right;
+}
+
 
 #landing_page_links{
 	width:300px;
@@ -97,12 +120,8 @@
 	margin-bottom: 30px;
 	float:right;
 	display: block;
-	border: 1px solid #41281e;
-	-webkit-border-radius: 10px;
-	-moz-border-radius: 10px;
-	-o-border-radius: 10px;
-	-ms-border-radius: 10px;
-	border-radius: 10px;
+	border:1px solid rgba(0,0,0, 0.4);
+
 }
 
 #landing_page_links p
