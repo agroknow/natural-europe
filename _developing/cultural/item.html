@@ -121,13 +121,24 @@ _gaq.push(['_trackPageview']);
 			</script>
 			<style type="text/css"></style>
 			
-<!-- AK- CSS -->
-<link rel="stylesheet" type="text/css" media="screen" href="css/ak-style.css" />
-<!-- / AK -->
-			
+<!-- AK - CSS-JS -->
+    <!--more css-->
+    <link rel="stylesheet" type="text/css" media="screen" href="css/ak-style.css" />
+    <script type="text/javascript" src="js/view_item.js"></script>
+    <script src="js/jquery.js"></script>
+    
+    <script type="text/javascript">
+        function getItem()
+        {
+           getItemJSONP(location.search.split("=")[1]);
+        }
+    </script> 
+
+<!-- /AK -->
+
 </head>
 
-<body id="s5_body">
+<body onload="getItem()" id="s5_body">
 
 <div style="display:none">
 	<img src="http://www.natural-europe.eu/templates/natural_europe/images/s5_menu_sub_li_hover.png" alt="">
@@ -234,94 +245,148 @@ _gaq.push(['_trackPageview']);
 										<div id="s5_main_body_wrap_inner2">
 											<div id="s5_main_content_wrap">
 												<div id="s5_main_content_wrap_inner" style="margin:0px">
-								<!-- AK - main content -->
-								
-								<div id="ak_navigation">
-									<a class="active" href="#">Home</a>
+				<!-- AK - main content -->
+				<div id="maincontent" class="with-sidebar">
+                <!-------------------------------------------------------- start search-->
+                <section id="main">
+                <!-- <div class="sorting"><a href="index.html">Home Page</a> > Results</div> -->
+                <div id="ak_navigation">
+									<a class="inactive" href="index.html">Home > </a>
+									<a class="inactive" href="listing.html?query=*">Search > </a>
+									<a href="#">View Item</a>
 								</div>
-								
-								<div class="landing_page_moto">
-									<p>Here you can access the online Natural Europe museum cultural collections! Explore the amazing collections curated by the scientists of the Natural History Museums participating in Natural Europe. Discover the rich variety of specimens, animals and plants, rocks and minerals, fossils, of artworks, museums exhibits and many other treasures!</p>
-								</div>	
-							
-								<section id="search">
-		                            <div >
-		                                <div>
-		                                    <form class="form-wrapper cf" action="listing.html" method="get">
-		                                        <div>
-		                                            <input type="text" name="query" id="query" class="withplaceholder" placeholder="Search Natural Europe" required>
-		                                                <button type="submit">Search</button>
-		                                                </div>
-		                                        <!--<input type="submit" value="submit" />-->
-		                                    </form>
-		                                </div>
-		                            </div>
-		                        </section>
-		                        
-		                        <!-- <div class="clearfix"></div> -->
-								
-                                <!-------------------------------------------------------- Life and Earth--->
-				                <section class="icons_nav">
-				                 	<h3>Browse our Collections by</h3>
-				                    <nav class="aligncenter">
-				                        <a href="listing.html?query=mineral" class="le0">Minerals</a>
-				                        <a href="listing.html?query=plantae" class="le1">Botany</a>
-				                        <a href="listing.html?query=animalia" class="le2">Zoology</a>
-				                        <a href="listing.html?query=rock meteorite" class="le3">Rocks</a>
-				                    </nav>
-				                </section>
-				                
-				                <!-------------------------------------------------------- end Recommended-->
-						                        
-								
-								<section id="highlighted_speciments">
-									<h3>Highlighted Speciments from Natural Europe History Museums</h3>
-									<div class="item">
-										<a target="_blank" href="http://jme.collections.natural-europe.eu/content/297df056-0b43-414f-a604-4a166fc3b51b"><img src="images/dinos.jpg"></a>
-										<div>
-											<p><b>Urvogel Archaeopteryx lithographica</b> <br> (click image to see in full size)</p>
-											<p>Museum: <a href="http://greenlearningnetwork.com/jura-museum/edu/index.html" target="_blank">Jura-Museum</a></p>
-										</div>
-									</div>
-
-									<div class="item">
-										<a href="http://nhmc.collections.natural-europe.eu/content/b85b71f4-8550-44cf-9c8c-051f8fc6b0f6" target="_blank"><img src="images/crab_spider.png" ></a>
-										<div>
-											<p><b>Crab spider</b> <br> (click image to see in full size)</p>
-											<p>Museum: <a href="http://greenlearningnetwork.com/natural-history-museum/cultural/index.html" target="_blank">Natural History Museum of Crete</a></p>
-										</div>
-									</div>	
-									
-									<div class="item">
-										<a target="_blank" href="http://tnhm.collections.natural-europe.eu/content/4354a070-d4b4-4b73-af4a-20831df5c5dd"><img src="images/crucian_carp.png" ></a>
-										<div>
-											<p><b>Crucian Carp</b> <br> (click image to see in full size)</p>
-											<p>Museum: <a href="http://greenlearningnetwork.com/estonian-nhm/cultural/index.html" target="_blank">Estonian Natural History Museum</a></p>
-										</div>
-									</div>																		
-
-								</section>
-								
-		                        <section id="landing_page_links">
-			                        <p>Below you can find links to the Discovery Microsites of each Natural History Museum that belongs to the Natural Europe Network. Just click the logo of the museum you are interested in and explore its digital collections.</p>
-			                        
-			                        <div><a href="http://greenlearningnetwork.com/arctic-center/cultural/index.html" target="_blank" title="Arctic Center"><img src="images/ac.jpg" /></a></div>
-			                        <div><a href="http://greenlearningnetwork.com/estonian-nhm/cultural/index.html" target="_blank" title="Estonian Natural History Museum"><img src="images/estonian.png" /></a></div>
-			                        <div><a href="http://greenlearningnetwork.com/hnhm/cultural/index.html" target="_blank" title="Hungarian Natural History Museum"><img src="images/hnhm.jpg" /></a></div>
-			                        <div><a href="http://greenlearningnetwork.com/natural-history-museum/cultural/index.html" target="_blank" title="Natural History Museum of Crete"><img src="images/NHMC.jpg" /></a></div>
-			                        <div><a href="http://greenlearningnetwork.com/lisbon-nhm/cultural/index.html" target="_blank" title="Lisbon Natural History Museum"><img src="images/lisbon.jpg" /></a></div>
-			                        <div><a href="http://greenlearningnetwork.com/jura-museum/cultural/index.html" target="_blank" title="Jura Museum"><img src="images/JME.gif" /></a></div>
-		                        </section>
-		                        
-		                        
-		                        
-		                        		                       
-								<!-- /AK - main content -->
-													
+                <section id="search">
+                            
+                            <div >
+                                <div>
+                                    <form class="form-wrapper cf" action="listing.html" method="get">
+                                        <div>
+                                            <input type="text" name="query" id="query" class="withplaceholder" placeholder="Search..." required>
+                                                <button type="submit">Search</button>
+                                                </div>
+                                        <!--<input type="submit" value="submit" />-->
+                                    </form>
+                                    
+                                </div>
+                            </div>
+                        </section>
+                <!-------------------------------------------------------- end start search-->
+               
+                
+                <!-- item content -->
+                
+                <div class="sorting"></div> <!-- horizontial bar-->
+                
+               <div class="twocols clearfix">
+                    
+                    <div class="leftSidebarInfo">
+                        
+                        <ul>
+                            <!--<h1>More Info</h1>-->
+                            
+                            <li class="grayscale_back">
+                                <span class="item_label">Collection:</span>
+                                <span class="item_value" id="collection"></span>
+                            </li>
+                            <li  >
+                            	<span class="item_label">Specimen:</span>
+                                <span class ="titlesOnLeft" id="specimen"></span>
+                            </li>
+                            <li >
+                                <span class="item_label">Classification:</span>
+                                <span  class="item_value" id="classification"></span>
+                            </li>
+                            <li >
+                                <span class="item_label">Scientific Name:</span>
+                                <span  class="item_value" id="scientific_name"></span>
+                            </li>
+                            <li >
+                                <span class="item_label">Spatial Coverage:</span>
+                                <span  class="item_value" id="spatial_coverage"> </span>
+                            </li>
+                            <li >
+                                <span class="item_label">Date:</span>
+                                <span  class="item_value" id="date_created"> </span>
+                            </li>
+                            <li >
+                                <span class="item_label">Type:</span>
+                                <span  class="item_value" id="type"> </span>
+                            </li>
+                            
+                            
+                        </ul>
+                    </div>
+                    
+                    
+                    
+                    <section class="itemview">
+                        <div class="itemDescription" id="itemDescription">
+                            
+                            <ul>
+                                <li >
+                                    <span class="item_label"></span>
+                                    <span  class="item_value" id="item_title"></span>
+                                </li>
+                                <li >
+                                    <span class="item_label">Description:</span>
+                                    <span  class="item_value" id="item_description"></span>
+                                </li>
+                                <li >
+                                    <span class="item_label">Creator:</span>
+                                    <span  class="item_value" id="item_creator"></span>
+                                </li>
+                                <li >
+                                    <span class="item_label">Keywords:</span>
+                                    <span  class="item_value" id="item_keywords"></span>
+                                </li>
+                                <li >
+                                    <span class="item_label">Language:</span>
+                                    <span  class="item_value" id="item_language"></span>
+                                </li>
+                                
+                                <li  >
+                                    <span class="item_label">Media type:</span>
+                                    <span  class="item_value" id="media_type"></span>
+                                </li>
+                                
+                                <li >
+                                    <span class="item_label">Copyrights:</span>
+                                    <span  class="item_value" id="item_copyrights"></span>
+                                </li>
+                                <li >
+                                    <span class="item_label">Relation:</span>
+                                    <span  class="item_value" id="item_relation"></span>
+                                </li>
+                                <li >
+                                    <span class="item_label">Creative Common License:</span>
+                                    <span  class="item_value" id="item_common_license"></span>
+                                </li>
+                            </ul>
+                            
+                        </div>
+                        
+                        <div id="itemThumb"></div>
+                
+                <div class="floatright" style="width:500px;">
+                    <div class="floatright" style="margin-right: 15px;" id="itemAccess"></div>
+                    <div class="floatright"><a href="mailto:info@agroknow.gr?Subject=Green%20Learning%20Network" class="reportaproblem  secondary">Report a problem</a></div>
+                </div>
+                    </section>
+               
+            
+                <!-- end item content-->
+            
+                <!--End AK_CONTENT-->
+            </div>
+            
+                <!-- end item content-->
+                </section>
+				</div><!--end maincontent-->
+				<!-- /AK - main content -->
 												</div>
 											</div>
 
-					
+											
 											
 											<div style="clear:both; height:0px"></div>
 										</div>
@@ -378,6 +443,15 @@ _gaq.push(['_trackPageview']);
 							<h3 class="s5_mod_h3"><span class="s5_h3_first">Find </span> us on Facebook</h3>
 						</div>
 												
+
+
+
+
+
+
+
+
+
 
 
 	<div class="jv_facebook-container">
