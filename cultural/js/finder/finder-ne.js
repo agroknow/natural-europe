@@ -102,21 +102,7 @@ providerName['edutnhm']='Estonian Natural History Museum';
 providerName['edujura']='Jura-Eichstatt Museum';
 providerName['eduac']='Arctic Center';
 
-
- /*LANGUAGES MAPPING*/
-jQuery.ajax({
-            url: "http://greenlearningnetwork.com/finders_files/language-mapping.json",
-            dataType: "json",
-            success: function(data)
-            {
-	            for(var i=0, size = data.languages.length; i<size;i++){
-	            langName[data.languages[i].machine] = data.languages[i].human;
-	            }
-            }
-            });
-            
-/*-- end JSON Mapping --*/
-
+langName['en']='English';
 
 
 
@@ -530,31 +516,32 @@ $('noResults').show();
           item.isOdd = oddCtr;
         // alert(JSON.stringify(item));
           
-          if(item.format!=undefined && item.format[0]!=undefined){
-          if (item.format[0].indexOf('pdf') != -1)
-          item.format='images/icons/pdf.png';
-          else if (item.format[0].indexOf('powerpoint') != -1)
-          item.format='images/icons/ppt.png';
-          else if (item.format[0].indexOf('video') != -1)
-          item.format='images/icons/video.png';
-          else if (item.format[0].indexOf('zip') != -1)
-          item.format='images/icons/zip.png';
-          else if (item.format[0].indexOf('audio') != -1)
-          item.format='images/icons/audio.png';
-          else if ((item.format[0].indexOf('text') != -1) ||(item.format[0].indexOf('multipart') != -1) )
-          item.format='images/icons/text.png';
-          else if ((item.format[0].indexOf('xml') != -1) )
-          item.format='images/icons/xml.png';
-          else if (item.format[0].indexOf('image') != -1)
-          item.format='images/icons/image.png';
-          //item.format=item.thumbnailUri;
-          //item.format=item.location;
-          else if ((item.format[0].indexOf('word')!= -1) || (item.format[0].indexOf('wordprocessingml')!= -1))
-          item.format='images/icons/word.png';
-          else if ((item.format[0].indexOf('application')!= -1))
-          item.format='images/icons/application.png';
-          else
-          	item.format='images/icons/application.png';
+          if(item.format!=undefined && item.format[0]!=undefined)
+          {
+	          if (item.format[0].indexOf('pdf') != -1)
+	          item.format='images/icons/pdf.png';
+	          else if (item.format[0].indexOf('powerpoint') != -1)
+	          item.format='images/icons/ppt.png';
+	          else if (item.format[0].indexOf('video') != -1)
+	          item.format='images/icons/video.png';
+	          else if (item.format[0].indexOf('zip') != -1)
+	          item.format='images/icons/zip.png';
+	          else if (item.format[0].indexOf('audio') != -1)
+	          item.format='images/icons/audio.png';
+	          else if ((item.format[0].indexOf('text') != -1) ||(item.format[0].indexOf('multipart') != -1) )
+	          item.format='images/icons/text.png';
+	          else if ((item.format[0].indexOf('xml') != -1) )
+	          item.format='images/icons/xml.png';
+	          else if (item.format[0].indexOf('image') != -1)
+	          item.format='images/icons/image.png';
+	          //item.format=item.thumbnailUri;
+	          //item.format=item.location;
+	          else if ((item.format[0].indexOf('word')!= -1) || (item.format[0].indexOf('wordprocessingml')!= -1))
+	          item.format='images/icons/word.png';
+	          else if ((item.format[0].indexOf('application')!= -1))
+	          item.format='images/icons/application.png';
+	          else
+	          	item.format='images/icons/application.png';
           }
           else
           {

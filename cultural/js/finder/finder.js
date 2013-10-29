@@ -112,6 +112,24 @@ langName['sv']= 'Swedish';
 langName['ell']= 'Greek';
 langName ['lat'] = 'Latin';
 langName['rus'] = 'Russian';
+langName['hu'] = 'Hungarian';
+langName['it'] = 'Italian';
+langName['da'] = 'Danish';
+langName['sk'] = '';
+langName['fi'] = 'Finnish';
+langName['mt'] = '';
+langName['sl'] = 'Slovenian';
+langName['pl'] = '';
+langName['is'] = '';
+langName['no'] = '';
+langName['cs'] = 'Czech';
+langName['hr'] = '';
+langName['la'] = 'Latin';
+langName['lv'] = 'Latvian';
+langName['ru'] = 'Russian';
+langName['spa'] = 'Spanish';
+langName['fra'] = 'French';
+
 
 
 google.load("language", "1");
@@ -559,7 +577,7 @@ function findMaterials(start,numberResults,needsUpdate,initUpdate){
                                       item.format='images/icons/zip.png';
                                       else if (item.format.indexOf('audio') != -1)
                                       item.format='images/icons/audio.png';
-                                      else if ((item.format.indexOf('text') != -1) ||(item.format[0].indexOf('multipart') != -1) )
+                                      else if ((item.format.indexOf('text') != -1) ||(item.format.indexOf('multipart') != -1) )
                                       item.format='images/icons/text.png';
                                       else if ((item.format.indexOf('xml') != -1) )
                                       item.format='images/icons/xml.png';
@@ -567,7 +585,7 @@ function findMaterials(start,numberResults,needsUpdate,initUpdate){
                                       item.format='images/icons/image.png';
                                       //item.format=item.thumbnailUri;
                                       //item.format=item.location;
-                                      else if ((item.format.indexOf('word')!= -1) || (item.format[0].indexOf('wordprocessingml')!= -1))
+                                      else if ((item.format.indexOf('word')!= -1) || (item.format.indexOf('wordprocessingml')!= -1))
                                       item.format='images/icons/word.png';
                                       else if ((item.format.indexOf('application')!= -1))
                                       item.format='images/icons/application.png';
@@ -986,23 +1004,30 @@ function findMaterials(start,numberResults,needsUpdate,initUpdate){
                  
                  
                  
-                 function facetSlide(){
-                 
-                 jQuery(document).ready(function(){
-                                        
-                                        jQuery('.filter_parent').each(function() {
-                                                                      if(jQuery(this).hasClass("opened")) jQuery(this).next().css("display","block");
-                                                                      });
-                                        jQuery('.filter_parent').click(function(event){
-                                                                       event.preventDefault();
-                                                                       jQuery(this).toggleClass("opened");
-                                                                       jQuery(this).next().slideToggle("slow");
-                                                                       });
-                                        exit();
-                                        
-                                        });
-                 }
-                 
+function facetSlide(){
+
+jQuery(document).ready(function()
+{
+	
+	jQuery('.filter_parent').each(function() 
+	{
+		if(jQuery(this).hasClass("opened")) 
+		jQuery(this).next().css("display","block");
+		
+	});
+	
+	jQuery('.filter_parent').click(function(event){
+		event.preventDefault();
+		jQuery(this).toggleClass("opened");
+		jQuery(this).next().slideToggle("slow");
+		
+		exit();
+	});
+
+
+});
+}
+
                  
                  
                  
