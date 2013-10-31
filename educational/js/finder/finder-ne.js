@@ -825,7 +825,7 @@ $('noResults').show();
                                                     div({cls:'floatleft'},
                                                         div({cls:'line keywords'}, span("Keywords:"), keywordsToEmbed)),
                                                     div({cls:'floatright'},
-                                                        div({cls:'line alignright'}, a({href:"item.html?id="+id, cls:'moreinfo'}, "More Info")
+                                                        div({cls:'line alignright'}, a({href:"item.html?id="+id, target:'_blank', cls:'moreinfo'}, "More Info")
                                                             )
                                                         )
                                                     )
@@ -882,7 +882,7 @@ $('noResults').show();
 		//                                                                                        div({cls:'language'}, span("Creative commons licence:"), thisRights),
 		//                                                                                        div({cls:'language'}, span("Rights:"), thisRights2),
 		                                            div({cls:'floatright'},
-		                                                div({cls:'line alignright'}, a({href:"item.html?id="+id, cls:'moreinfo'}, "More Info")))))))});
+		                                                div({cls:'line alignright'}, a({href:"item.html?id="+id, target:'_blank', cls:'moreinfo'}, "More Info")))))))});
                               
                                              
          Jaml.register('rbcriteria', function(data) //rest facets 

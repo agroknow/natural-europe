@@ -20,7 +20,7 @@ function getItemJSONP(itemID)
                 var tmp = JSON.parse(thisJson);
                 var record = tmp.result.metadata[0];
                 
-                //console.log(thisJson);
+                console.log(record);
                 
                 //left_sidebar
                 
@@ -34,31 +34,47 @@ function getItemJSONP(itemID)
                 if(record.classification!=undefined)
                 {
 	                var tempClassif = Object.keys(record.classification);
-	                for(var i=0; i <tempClassif.length; i++)
+	                if(tempClassif.length>0)
 	                {
-		                if(record.classification[tempClassif[i]]!=undefined)
+		                for(var i=0; i <tempClassif.length; i++)
 		                {
-			                jQuery('#classification').append(record.classification[tempClassif[i]] );
-		                
-			                if(i!=tempClassif.length-1)
-			                {jQuery('#classification').append(", ");}
+			                if(record.classification[tempClassif[i]]!=undefined)
+			                {
+				                jQuery('#classification').append(record.classification[tempClassif[i]] );
+			                
+				                if(i!=tempClassif.length-1)
+				                {jQuery('#classification').append(", ");}
+			                }
 		                }
 	                }
+	                
                 }
                 
                 //-//Scientific Name
                 if(record.scientificName!=undefined)
                 {
-	                var tempScienName = Object.keys(record.scientificName);
-	                for(var i=0; i <tempScienName.length; i++)
-	                {
-		                if(record.classification[tempClassif[i]]!=undefined)
+                	if(record.scientificName instanceof Object)
+                	{
+	                	var tempScienName = Object.keys(record.scientificName);
+		                if(tempScienName.length>0)
 		                {
-			                jQuery('#scientific_name').append(record.scientificName[tempScienName[i]].value);
-			                if(i!=tempScienName.length-1)
-			                { jQuery('#scientific_name').append(", "); }
+				            for(var i=0; i <tempScienName.length; i++)
+			                {
+				                if(record.classification!=undefined && record.classification[tempScienName[i]]!=undefined)
+				                {
+					                jQuery('#scientific_name').append(record.scientificName[tempScienName[i]].value);
+					                if(i!=tempScienName.length-1)
+					                { jQuery('#scientific_name').append(", "); }
+				                }
+			                }  
 		                }
-	                }
+                	}
+                	else
+                	{
+	                	jQuery('#scientific_name').append(record.scientificName);
+                	}
+	                
+	                
                 }
                 
                 //-//Spatial Coverage

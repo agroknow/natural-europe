@@ -880,7 +880,7 @@ function findMaterials(start,numberResults,needsUpdate,initUpdate){
                                                             div({cls:'language'}, span("Creative commons licence:"), thisRights),
                                                             div({cls:'language'}, span("Rights:"), thisRights2),
                                                             div({cls:'floatright'},
-                                                                div({cls:'line alignright'}, a({href:"item.html?id="+data.id, cls:'moreinfo'}, "More Info")))))))
+                                                                div({cls:'line alignright'}, a({href:"item.html?id="+data.id,target:"_blank" , cls:'moreinfo'}, "More Info")))))))
                                });
                  
                  
@@ -959,7 +959,7 @@ function findMaterials(start,numberResults,needsUpdate,initUpdate){
                                                             //div({cls:'language'}, span("Creative commons licence:"), thisRights),
                                                             //div({cls:'language'}, span("Rights:"), thisRights2),
                                                             div({cls:'floatright'},
-                                                                div({cls:'line alignright'}, a({href:"item.html?id="+data.id, cls:'moreinfo'}, "More Info")))))))});
+                                                                div({cls:'line alignright'}, a({href:"item.html?id="+data.id, target:"_blank",  cls:'moreinfo'}, "More Info")))))))});
                  
                  
                /*-----------------------------RENDER FACETS--------------------------------*/
