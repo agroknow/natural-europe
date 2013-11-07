@@ -102,21 +102,43 @@ providerName['edutnhm']='Estonian Natural History Museum';
 providerName['edujura']='Jura-Eichstatt Museum';
 providerName['eduac']='Arctic Center';
 
-
- /*LANGUAGES MAPPING*/
-jQuery.ajax({
-            url: "http://greenlearningnetwork.com/finders_files/language-mapping.json",
-            dataType: "json",
-            success: function(data)
-            {
-	            for(var i=0, size = data.languages.length; i<size;i++){
-	            langName[data.languages[i].machine] = data.languages[i].human;
-	            }
-            }
-            });
-            
-/*-- end JSON Mapping --*/
-
+langName['en']='English';
+langName['eng;']='English';
+langName['eng']='English';
+langName['eng; eng']='English';
+langName['fr']= 'French';
+langName['fre']= 'French';
+langName['el']= 'Greek';
+langName['hun']= 'Hungarian';
+langName['et']= 'Estonian';
+langName['est']= 'Estonian';
+langName['nl']= 'Dutch';
+langName['ro']= 'Romanian';
+langName['de']= 'German';
+langName['deu']= 'German';
+langName['tr']= 'Turkish';
+langName['pt']= 'Portuguese';
+langName['por']= 'Portuguese';
+langName['es']= 'Spanish';
+langName['sv']= 'Swedish';
+langName['ell']= 'Greek';
+langName ['lat'] = 'Latin';
+langName['rus'] = 'Russian';
+langName['hu'] = 'Hungarian';
+langName['it'] = 'Italian';
+langName['da'] = 'Danish';
+langName['sk'] = 'Slovak';
+langName['fi'] = 'Finnish';
+langName['mt'] = 'Maltese';
+langName['sl'] = 'Slovenian';
+langName['pl'] = 'Polish';
+langName['is'] = 'Icelandic';
+langName['no'] = 'Norwegian';
+langName['cs'] = 'Czech';
+langName['hr'] = 'Croatian';
+langName['la'] = 'Latin';
+langName['lv'] = 'Latvian';
+langName['ru'] = 'Russian';
 
 
 
@@ -803,7 +825,7 @@ $('noResults').show();
                                                     div({cls:'floatleft'},
                                                         div({cls:'line keywords'}, span("Keywords:"), keywordsToEmbed)),
                                                     div({cls:'floatright'},
-                                                        div({cls:'line alignright'}, a({href:"item.html?id="+id, cls:'moreinfo'}, "More Info")
+                                                        div({cls:'line alignright'}, a({href:"item.html?id="+id, target:'_blank', cls:'moreinfo'}, "More Info")
                                                             )
                                                         )
                                                     )
@@ -860,7 +882,7 @@ $('noResults').show();
 		//                                                                                        div({cls:'language'}, span("Creative commons licence:"), thisRights),
 		//                                                                                        div({cls:'language'}, span("Rights:"), thisRights2),
 		                                            div({cls:'floatright'},
-		                                                div({cls:'line alignright'}, a({href:"item.html?id="+id, cls:'moreinfo'}, "More Info")))))))});
+		                                                div({cls:'line alignright'}, a({href:"item.html?id="+id, target:'_blank', cls:'moreinfo'}, "More Info")))))))});
                               
                                              
          Jaml.register('rbcriteria', function(data) //rest facets 
