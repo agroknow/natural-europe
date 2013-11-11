@@ -18,6 +18,45 @@
 	display: inline-block;
 }
 
+.author_link
+{
+	overflow: visible;
+    position: relative;
+    float: right;
+    border: 0;
+    padding: 2px;
+    margin:0;
+    cursor: pointer;
+    height: 25px;
+    width: 180px;
+    font: bold 15px/20px 'lucida sans', 'trebuchet MS', 'Tahoma';
+    color: #fff;
+    background: #809359;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px ;
+    border-radius: 3px;
+    text-align: center;
+    text-shadow: 0 -1px 0 rgba(0, 0 ,0, .3);
+}
+
+.author_link:hover {
+	text-decoration: none;
+	background: #41281e;
+}
+
+#ak_navigation{
+	border-top:1px solid rgba(0,0,0,0.2);
+	border-bottom:1px solid rgba(0,0,0,0.2);
+	margin-left:30px;
+	margin-top:5px;
+	width:700px;
+	float:left;
+}
+
+#ak_navigation .inactive{
+	font-color:gray;
+	font-weight: lighter;
+}
 
 /* ICONS NAV */
 .icons_nav { margin-top:20px;}
@@ -49,7 +88,7 @@
     font-weight:normal;
 	margin:0 25px;
     color:#41281E;
-    
+
 }
 .icons_nav nav a span {
 	height:40px;
@@ -74,7 +113,7 @@
 /* /icons_nav */
 
 
-#highlighted_pathways 
+#highlighted_pathways
 {
 	float:left;
 	width:395px;
@@ -89,7 +128,7 @@
 #highlighted_pathways .item
 {
 	width:100%;
-	padding:10px 0px; 
+	padding:10px 0px;
 	display:inline-block;
 	border-top: 1px solid rgba(0,0,0, 0.4);
 }
@@ -126,29 +165,20 @@
 #landing_page_links p
 {
 	width:90%;
-	margin:0 auto;	
+	margin:0 auto;
 }
 
 #landing_page_links div{
 	float:left;
 	margin:0px 10px;
-	padding:5px;	
+	padding:5px;
 }
 
 #landing_page_links img{
 	width : 100px;
 }
 
-#ak_navigation{
-	border-top:1px solid rgba(0,0,0,0.2);
-	border-bottom:1px solid rgba(0,0,0,0.2);
-	margin-left:30px;
-}
 
-#ak_navigation .inactive{
-	font-color:gray;
-	font-weight: lighter;
-}
 /* /GENERAL */
 
 
@@ -253,7 +283,7 @@
     border-color: transparent #809359 transparent;
     top: 12px;
     left: -6px;
-    
+
 }
 
 .form-wrapper button:hover:before{
@@ -319,8 +349,8 @@
     max-width : 650px; /*fix infinite length of keywords line*/
 	margin-bottom:7px;
     overflow:hidden; /*### need change because it hides some keywords*/
-    
-    
+
+
 }
 
 
@@ -401,7 +431,7 @@ a.secondary:hover { color:#e63e45;text-decoration:underline; }
     padding-left:10px;
     color:black;
     text-decoration:none;
-    
+
 }
 .yui-pg-next
 {
@@ -423,8 +453,8 @@ a.secondary:hover { color:#e63e45;text-decoration:underline; }
 	-moz-border-radius:0 0 4px 4px;
 	border-radius:0 0 4px 4px;*/
     border-right: 1px solid  rgba(0,0,0,0.2);
-    
-    
+
+
 }
 .filter a {
 	display:block;
@@ -441,12 +471,12 @@ a.secondary:hover { color:#e63e45;text-decoration:underline; }
     background: #41281e;
     color : white;
     font:20px;
-    
+
 }
 
 .filter_parent a {
     color:white;
-    
+
 }
 
 .filter_parent:hover {
@@ -519,7 +549,7 @@ a.secondary:hover { color:#e63e45;text-decoration:underline; }
 	background-color:white;
 	font-weight:normal;
 	text-align:center;
-    
+
 }
 .remove_filters {
 	text-align:right;
@@ -576,11 +606,11 @@ a.secondary:hover { color:#e63e45;text-decoration:underline; }
 .item_label
 {
 	font-size: 14px;
-	font-weight:bold;	
+	font-weight:bold;
 }
 
 .grayscale_back
-{	
+{
 	background: rgba(0,0,0,0.2);
 }
 
