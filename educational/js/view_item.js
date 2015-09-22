@@ -41,11 +41,17 @@ function getItemJSONP(urlTemp)
                 }
                 
                 document.getElementById('itemTitle').innerHTML =  thisTitle;
+                jQuery('#facebook-social').attr('data-name',languageBlock.title);
+                jQuery('#twitter-social').attr('data-text',languageBlock.title);
                 }
                 
                 if(languageBlock.description!==undefined)
                 {
                 document.getElementById('itemDescription').innerHTML = languageBlock.description;
+                jQuery('#facebook-social').attr('data-description',languageBlock.description);
+                var data_text = jQuery('#twitter-social').attr('data-text') + ' ' + languageBlock.description;
+                data_text = data_text.substring(0,90);
+                jQuery('#twitter-social').attr('data-text',data_text);
                 }
                 
                 if(arrayWithJSONS[0].expressions[0].manifestations[0].items[0].url!==undefined)
@@ -242,12 +248,18 @@ function getItemJSONP(urlTemp)
                 
                 }
                 document.getElementById('itemTitle').innerHTML = thisTitle ;
+                jQuery('#facebook-social').attr('data-name',languageBlock.title);
+                jQuery('#twitter-social').attr('data-text',languageBlock.title);
                 }
                 
                 
                 if(languageBlock.description!==undefined)
                 {
                 document.getElementById('itemDescription').innerHTML = languageBlock.description;
+                jQuery('#facebook-social').attr('data-description',languageBlock.description);
+                var data_text = jQuery('#twitter-social').attr('data-text') + ' ' + languageBlock.description;
+                data_text = data_text.substring(0,90);
+                jQuery('#twitter-social').attr('data-text',data_text);
                 }
                 
                 

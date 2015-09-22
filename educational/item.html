@@ -66,6 +66,49 @@ jQuery(" #s5_navv li").hover(function(){
 		},function(){jQuery(this).find('ul:first').css({visibility: "hidden"});	});}
   jQuery(document).ready(function(){ s5_jqmainmenu();});
 </script>
+<script type="text/javascript">
+function facebookShare(el){
+	FB.ui({
+  method: 'feed',
+  link: el.attr('data-url'),
+  name: el.attr('data-name'),
+  description: el.attr('data-description'),
+  //caption: 'An example caption',
+}, function(response){});
+}
+// Tiny object for getting counts
+var socialGetter = (function() {
+	/* just a utility to do the script injection */
+	function injectScript(url) {
+		var script = document.createElement('script');
+		script.async = true;
+		script.src = url;
+		document.body.appendChild(script);
+	}
+
+	return {
+		getFacebookCount: function(url, callbackName) {
+			injectScript('https://graph.facebook.com/?id=' + url + '&callback=' + callbackName);
+		},
+		getTwitterCount: function(url, callbackName) {
+			injectScript('http://urls.api.twitter.com/1/urls/count.json?url=' + url + '&callback=' + callbackName);
+		}
+	};
+})();
+// Callbacks to do something with the result
+function twitterCallback(result) {
+	jQuery('#twitterCount').text(result.count);
+}
+function facebookCallback(result) {
+	jQuery('#facebookCount').text(result.shares);
+}
+function tweetPopup(el) {
+    var height = ((window.outerHeight) /2) - 150;
+    var width = ((window.outerWidth)/2)  - 250;
+    window.open('http://twitter.com/intent/tweet?text='+jQuery(el).attr('data-text')+'&url='+jQuery(el).attr('data-url').replace(/#/,'%23') , 'twitter', 'height=300,width=500,resizable=1,scrollbars=yes,top='+ height +',left='+width);
+    return false;
+}
+</script>
 
 <script language="javascript" type="text/javascript">var s5_text_menu_1 = '';</script><script language="javascript" type="text/javascript">var s5_text_menu_2 = '';</script><script language="javascript" type="text/javascript">var s5_text_menu_3 = '';</script><script language="javascript" type="text/javascript">var s5_text_menu_4 = '';</script><script language="javascript" type="text/javascript">var s5_text_menu_5 = '';</script><script language="javascript" type="text/javascript">var s5_text_menu_6 = '';</script><script language="javascript" type="text/javascript">var s5_text_menu_7 = '';</script><script language="javascript" type="text/javascript">var s5_text_menu_8 = '';</script><script language="javascript" type="text/javascript">var s5_text_menu_9 = '';</script><script language="javascript" type="text/javascript">var s5_text_menu_10 = '';</script>
 <link href="http://www.natural-europe.eu/templates/natural_europe/favicon.ico" rel="shortcut icon" type="image/x-icon">
@@ -124,13 +167,19 @@ _gaq.push(['_trackPageview']);
 <!-- AK - CSS-JS -->
     <!--more css-->
     <link rel="stylesheet" type="text/css" media="screen" href="css/ak-style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/socialbuttons.css" />
     <script type="text/javascript" src="js/view_item.js"></script>
     <script src="js/jquery.js"></script>
 
     <script type="text/javascript">
         function getItem()
         {
-           getItemJSONP('http://54.228.180.124:8080/akifRetriever/getAKIF?ids='+location.search.split("=")[1]);
+            getItemJSONP('http://54.228.180.124:8080/akifRetriever/getAKIF?ids='+location.search.split("=")[1]);
+            jQuery('#facebook-social').attr('data-url',location);
+            jQuery('#twitter-social').attr('data-url',location);
+        	socialGetter.getFacebookCount(location, 'facebookCallback');
+			socialGetter.getTwitterCount(location, 'twitterCallback');
+
         }
     </script>
 
@@ -139,6 +188,25 @@ _gaq.push(['_trackPageview']);
 </head>
 
 <body onload="getItem()" id="s5_body">
+	<!-- fb javascript sdk -->
+	<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '625422610928827',
+      xfbml      : true,
+      version    : 'v2.4'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+<!-- /fb javascript sdk -->
 
 <div style="display:none">
 	<img src="http://www.natural-europe.eu/templates/natural_europe/images/s5_menu_sub_li_hover.png" alt="">
@@ -366,6 +434,12 @@ _gaq.push(['_trackPageview']);
                                     <div class="floatright"><a href="mailto:info@agroknow.gr?Subject=Green%20Learning%20Network" class="reportaproblem  secondary">Report a problem</a></div>
                                     <div class="floatright" style="margin-right: 15px;" id="itemAccess"></div>
                                 </div>
+                                <div class="clearfix">
+                                    	<ul id="social-buttons" class="socialbuttons">
+                                    		<li><a id="facebook-social" class="facebook-big" onclick="facebookShare(jQuery(this));" href="javascript:void(0);" data-name="" data-description="" data-url="">Facebook <span id="facebookCount"></span></a></li>
+                                    		<li><a id="twitter-social" class="twitter-big" onclick="tweetPopup(jQuery(this));" href="javascript:void(0);" data-text="" data-url="" >Tweet <span id="twitterCount"></span></a></li>
+                                    	</ul>
+                                    </div>
 
                             </div>
                         </article>
@@ -435,20 +509,9 @@ _gaq.push(['_trackPageview']);
 												<div class="s5_mod_transparent_h3_outer">
 							<h3 class="s5_mod_h3"><span class="s5_h3_first">Find </span> us on Facebook</h3>
 						</div>
-
-
-
-
-
-
-
-
-
-
-
-
 	<div class="jv_facebook-container">
-		<script src="http://static.ak.connect.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php" type="text/javascript"></script><script type="text/javascript">FB.init("");</script><fb:fan profile_id="108519365896509" width="250" connections="8" height="270" css="http://www.natural-europe.eu/modules/mod_jv_facebook/assets/jv_fb.css?ts=8515"></fb:fan>	</div>
+		<div class="fb-page" data-href="https://www.facebook.com/Natural-Europe-Project-Natural-History-108519365896509" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"></div>	
+	</div>
 						<div style="clear:both; height:0px"></div>
 					</div>
 				</div>
@@ -462,15 +525,8 @@ _gaq.push(['_trackPageview']);
 			</div>
 
 		</div>
-
-
-								</div>
-
-															<div id="s5_bottom_row_2" style="float:left; width:33.3%">
-
-
-
-
+			</div>
+		<div id="s5_bottom_row_2" style="float:left; width:33.3%">
 		<div class="s5_module_box">
 
 			<div class="s5_module_box_tl">
